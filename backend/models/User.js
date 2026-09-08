@@ -1,0 +1,22 @@
+const mongoose = require("mongoose");
+const userSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true, trim: true },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
+    password: { type: String, required: true },
+    channelName: { type: String, default: "Soru Creator", trim: true },
+    avatar: { type: String, default: "" },
+    settings: {
+      notifications: { type: Boolean, default: true },
+      appearance: { type: String, enum: ["light", "dark"], default: "light" },
+    },
+  },
+  { timestamps: true },
+);
+module.exports = mongoose.model("User", userSchema);

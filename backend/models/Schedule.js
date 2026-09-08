@@ -1,0 +1,3 @@
+const mongoose=require('mongoose');
+const scheduleSchema=new mongoose.Schema({title:{type:String,required:true,trim:true},type:{type:String,enum:['Shoot','Post','Deadline','Meeting','Task','Other'],default:'Task'},date:{type:Date,required:true},time:{type:String,default:''},status:{type:String,enum:['Planned','Completed','Cancelled'],default:'Planned'},projectId:{type:mongoose.Schema.Types.ObjectId,ref:'Project',default:null},notes:{type:String,default:'',trim:true},userId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true}},{timestamps:true});
+module.exports=mongoose.model('Schedule',scheduleSchema);

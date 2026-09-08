@@ -1,0 +1,1 @@
+import{api}from'./api';export const login=async d=>(await api.post('/auth/login',d)).data;export const register=async d=>(await api.post('/auth/register',d)).data;export const me=async()=>(await api.get('/auth/me')).data;export const updateProfile=async d=>(await api.put('/auth/me',d)).data;

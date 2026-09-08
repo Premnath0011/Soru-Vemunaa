@@ -1,0 +1,1 @@
+import{api}from'./api';export const getSchedules=async params=>(await api.get('/schedules',{params})).data;export const createSchedule=async d=>(await api.post('/schedules',d)).data;export const updateSchedule=async(id,d)=>(await api.put(`/schedules/${id}`,d)).data;export const deleteSchedule=async id=>(await api.delete(`/schedules/${id}`)).data;

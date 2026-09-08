@@ -1,0 +1,1 @@
+import{api}from'./api';export const getCategories=async()=>(await api.get('/categories')).data;export const createCategory=async d=>(await api.post('/categories',d)).data;export const deleteCategory=async id=>(await api.delete(`/categories/${id}`)).data;
