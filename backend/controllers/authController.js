@@ -49,7 +49,7 @@ exports.register = async (req, res) => {
       name,
       email,
       password: await bcrypt.hash(password, 10),
-      channelName: channelName || "Soru Creator",
+      channelName: channelName || "Soru_Venumaa",
     });
     await Promise.all([
       Project.updateMany(

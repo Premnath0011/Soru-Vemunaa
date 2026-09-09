@@ -6,6 +6,7 @@ import {
   FiBarChart2,
   FiArrowUpRight,
   FiArrowDownLeft,
+  FiEdit3,
 } from "react-icons/fi";
 import Header from "../../components/Header";
 import { getTransactions } from "../../services/transactionService";
@@ -39,7 +40,7 @@ export default function Dashboard() {
   return (
     <>
       <Header
-        title={user?.channelName || "Soru venumaa"}
+        title="Soru_Venumaa"
         subtitle="Create • Track • Grow"
         menu
         brand
@@ -55,7 +56,7 @@ export default function Dashboard() {
           👋
         </div>
         <div className="subtle" style={{ marginTop: 4 }}>
-          Here’s your creator business at a glance.
+          Here’s your Soru_Venumaa dashboard at a glance.
         </div>
       </div>
       {err && <div className="error-box">{err}</div>}
@@ -85,7 +86,7 @@ export default function Dashboard() {
         </button>
         <button className="quick" onClick={() => nav("/ideas")}>
           <div className="quick-icon">
-            <FiBarChart2 />
+            <FiEdit3/>
           </div>
           Ideas
         </button>

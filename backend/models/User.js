@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema(
       trim: true,
     },
     password: { type: String, required: true },
-    channelName: { type: String, default: "Soru Creator", trim: true },
+    channelName: { type: String, default: "Soru_Venumaa", trim: true },
     avatar: { type: String, default: "" },
     settings: {
       notifications: { type: Boolean, default: true },

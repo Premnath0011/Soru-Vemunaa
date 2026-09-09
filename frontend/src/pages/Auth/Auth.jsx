@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { FiLogIn, FiUserPlus } from "react-icons/fi";
 import { login, register } from "../../services/authService";
 import { useAuth } from "../../context";
-import Logo from "../../components/Logo";
 import Decor from "../../components/Decor";
 export default function Auth({ mode }) {
   const isLogin = mode === "login",
@@ -13,7 +12,7 @@ export default function Auth({ mode }) {
       name: "",
       email: "",
       password: "",
-      channelName: "Soru Creator",
+      channelName: "Soru_Venumaa",
     }),
     [err, setErr] = useState(""),
     [busy, setBusy] = useState(false);
@@ -38,9 +37,9 @@ export default function Auth({ mode }) {
     <div className="auth-screen">
       <Decor />
       <div className="auth-card glass">
-        <div className="auth-brand">
-          <Logo size={54} ring={false} />
-          <div className="logo-text">Soru venumaa</div>
+        <div className="auth-logo-wrap">
+          <img className="auth-logo-image" src="/soru-venumaa-logo.jpeg" alt="Soru_Venumaa" />
+          <div className="auth-brand-name">Soru_Venumaa</div>
         </div>
         <p className="subtle">Create • Track • Grow</p>
         <h1>{isLogin ? "Welcome back" : "Create your account"}</h1>
