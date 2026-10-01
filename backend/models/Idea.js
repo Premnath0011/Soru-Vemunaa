@@ -1,1 +1,3 @@
-const mongoose=require('mongoose');const schema=new mongoose.Schema({title:{type:String,required:true,trim:true},description:{type:String,default:''},category:{type:String,enum:['Content','Collab','Personal'],default:'Content'},status:{type:String,enum:['Idea','Planned','Completed'],default:'Idea'},userId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true}},{timestamps:true});module.exports=mongoose.model('Idea',schema);
+const mongoose=require('mongoose');
+const schema=new mongoose.Schema({title:{type:String,required:true,trim:true},description:{type:String,default:''},category:{type:String,enum:['Content','Collab','Personal'],default:'Content'},status:{type:String,enum:['Idea','Planned','Completed'],default:'Idea'},projectId:{type:mongoose.Schema.Types.ObjectId,ref:'Project',default:null},userId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true}},{timestamps:true});
+module.exports=mongoose.model('Idea',schema);

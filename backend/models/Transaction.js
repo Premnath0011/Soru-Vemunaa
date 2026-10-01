@@ -1,1 +1,15 @@
-const mongoose=require('mongoose');const schema=new mongoose.Schema({type:{type:String,enum:['income','expense'],required:true},title:{type:String,required:true,trim:true},amount:{type:Number,required:true,min:0},category:{type:String,trim:true,default:''},projectId:{type:mongoose.Schema.Types.ObjectId,ref:'Project',default:null},date:{type:Date,required:true},notes:{type:String,default:''},userId:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true}},{timestamps:true});schema.index({userId:1,date:-1});module.exports=mongoose.model('Transaction',schema);
+const mongoose = require('mongoose');
+const schema = new mongoose.Schema({
+  type: { type: String, enum: ['income', 'expense'], required: true },
+  title: { type: String, required: true, trim: true },
+  amount: { type: Number, required: true, min: 0 },
+  category: { type: String, trim: true, default: '' },
+  projectId: { type: mongoose.Schema.Types.ObjectId, ref: 'Project', default: null },
+  date: { type: Date, required: true },
+  notes: { type: String, default: '' },
+  source: { type: String, enum: ['Manual', 'Project Payment'], default: 'Manual' },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
+}, { timestamps: true });
+schema.index({ userId: 1, date: -1 });
+schema.index({ userId: 1, projectId: 1, date: -1 });
+module.exports = mongoose.model('Transaction', schema);
